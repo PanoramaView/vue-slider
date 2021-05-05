@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <!-- font -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto:wght@300&display=swap" rel="stylesheet">
+        
+        <!-- https://fontawesome.com/v4.7.0/icons/ -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+        <!-- MyCSS -->
+        <link rel="stylesheet" href="style.css">
+
+        <!-- Vue JS -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+        <title>Vueutiful Img Slider</title>
+        
+    </head>
+    <body>
+        <div class="container" id="app">
+            <h1>Wlop art</h1>
+            <div class="slider-container" @keyup.left="changeImg(-1)" @keyup.right="changeImg(1)" tabindex="-1">
+                <div class="box-arrow">
+                    <i class="fas fa-chevron-left" @click="changeImg(-1)"></i>
+                </div>
+                <div class="box-img">
+                    <img :src="imageList[activeImg]" class="slider-image">
+                    <div class="slider-dots-container">
+                        <a href="#" class="dot" :class="{currentImg: activeImg === index}" v-for="(img, index) in imageList" @click = "dotclick(index)"></a>
+                    </div>
+                </div>
+                <div class="box-arrow">
+                    <i class="fas fa-chevron-right" @click="changeImg(1)"></i>
+                </div>
+                
+            </div>
+        </div>
+        
+        <!-- My JS -->
+        <script src="myscripts.js"></script>
+    </body>
+</html>
